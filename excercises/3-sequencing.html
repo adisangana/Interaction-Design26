@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Exercise 3: Sequencing</title>
+    <link href="../resources/reset.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        #div1 {
+            background: #264c89;
+        }
+
+        #div2 {
+            background: #388967;
+        }
+
+        #div3 {
+            background: #41bfc4;
+        }
+
+        /* Headline starts large and blurry, then becomes normal and sharp */
+        @keyframes headlineDrop {
+            0% {
+                transform: scale(3);
+                filter: blur(10px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        /* Subheading slides in from the left */
+        @keyframes subheadSlide {
+            0% {
+                transform: translateX(-300px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Elements fade from transparent to visible */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* The headline animation lasts one second */
+        h1 {
+            animation: headlineDrop 1s ease;
+        }
+
+        /*
+           The one-second delay matches the duration
+           of the headlineDrop animation.
+        */
+        h2 {
+            animation: subheadSlide 0.5s ease 1s both;
+        }
+
+        /*
+           Each div takes 0.5 seconds to fade in.
+
+           Each new div starts 0.25 seconds before
+           the previous div finishes.
+        */
+        #div1 {
+            animation: fadeIn 0.5s ease 1.25s both;
+        }
+
+        #div2 {
+            animation: fadeIn 0.5s ease 1.5s both;
+        }
+
+        #div3 {
+            animation: fadeIn 0.5s ease 1.75s both;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercise 3: Sequencing</h1>
+    <h2>Example subheading</h2>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>
